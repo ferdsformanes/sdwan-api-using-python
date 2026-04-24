@@ -31,7 +31,6 @@ Paste the code below.
 ## Step 3 — Python code (Login + Get Devices)
 
 ```python
-# Cisco Catalyst SD-WAN Manager API: Get Device List with Python Requests
 
 import requests
 import urllib3
