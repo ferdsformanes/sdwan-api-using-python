@@ -90,14 +90,6 @@ python get_sdwan_devices.py
 
 ---
 
-## Next ideas (Episode 2+)
-
-- Get **alarms** via API and filter critical ones
-- Get **device health / reachability** and export to CSV
-- Pull **SLA metrics** (latency/jitter/loss) per site
-
----
-
 ### References
 
 - Cisco DevNet Sandbox: SD‑WAN Always‑On
