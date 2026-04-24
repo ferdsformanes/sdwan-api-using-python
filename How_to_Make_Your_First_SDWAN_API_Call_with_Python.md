@@ -66,8 +66,7 @@ if resp.status_code != 200:
 
 devices = resp.json()
 
-print("
-Retrieved devices:")
+print("\nRetrieved devices:")
 for d in devices["data"]:
     print(f"- {d['host-name']} ({d['deviceId']})")
 ```
