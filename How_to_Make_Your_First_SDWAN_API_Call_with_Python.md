@@ -54,7 +54,8 @@ resp = session.post(login_url, data=payload, verify=False)
 if resp.status_code != 200 or "JSESSIONID" not in session.cookies:
     raise Exception("Login failed!")
 
-print("JSESSIONID:", session.cookies.get("JSESSIONID"))
+print("JSESSIONID", session.cookies.get("JSESSIONID"))
+
 print("Logged in successfully")
 
 # Step 2: Retrieve device list
@@ -62,13 +63,16 @@ devices_url = f"{HOST}/dataservice/device"
 resp = session.get(devices_url, verify=False)
 
 if resp.status_code != 200:
-    raise Exception(f"Failed to retrieve devices: {resp.status_code}")
+    raise Exception(f"Failed to retrieve devices: {resp.status_code}, {resp.text}")
 
 devices = resp.json()
 
-print("\nRetrieved devices:")
+print(type(devices))
+# Print all top-level keys in the JSON response
+
+print("Retrieved devices:")
 for d in devices["data"]:
-    print(f"- {d['host-name']} ({d['deviceId']})")
+    print(f"- {d['host-name']}, ({d['deviceId']})")
 ```
 
 ---
