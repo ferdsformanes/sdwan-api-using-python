@@ -64,7 +64,7 @@ resp = session.get(devices_url, verify=False)
 if resp.status_code != 200:
     raise Exception(f"Failed to retrieve devices: {resp.status_code}, {resp.text}")
 
-devices = resp.json()
+devices = resp.json()  # Convert the JSON API response into a Python dictionary
 
 print("Retrieved devices:")
 for d in devices["data"]:
