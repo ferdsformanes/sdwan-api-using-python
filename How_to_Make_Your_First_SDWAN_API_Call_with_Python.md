@@ -1,6 +1,6 @@
 # How to Make Your First SD‑WAN API Call with Python (Login + Get Devices)
 
-This guide shows the shortest practical way to:
+Summary Steps:
 
 1. **Log in** to Cisco Catalyst SD‑WAN Manager (vManage) using Python
 2. **Call** a real REST API endpoint to **get the device list**
