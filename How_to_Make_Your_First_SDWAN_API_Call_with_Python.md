@@ -43,7 +43,7 @@ HOST = "https://sandbox-sdwan-2.cisco.com"
 USERNAME = "devnetuser"
 PASSWORD = "RG!_Yw919_83"
 
-# Create a requests session
+# Create a session to persist cookies (JSESSIONID) across requests after login
 session = requests.Session()
 
 # Step 1: Login and get JSESSIONID
@@ -55,7 +55,6 @@ if resp.status_code != 200 or "JSESSIONID" not in session.cookies:
     raise Exception("Login failed!")
 
 print("JSESSIONID", session.cookies.get("JSESSIONID"))
-
 print("Logged in successfully")
 
 # Step 2: Retrieve device list
@@ -67,15 +66,10 @@ if resp.status_code != 200:
 
 devices = resp.json()
 
-print(type(devices))
-# Print all top-level keys in the JSON response
-
 print("Retrieved devices:")
 for d in devices["data"]:
     print(f"- {d['host-name']}, ({d['deviceId']})")
 ```
-
----
 
 ## Step 4 — Run the script
 
