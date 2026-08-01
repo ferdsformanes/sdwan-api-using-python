@@ -1,6 +1,6 @@
 # How to Create and Use Environment Variables in Postman (Step-by-Step)
 
-In this tutorial, you'll create an environment variable named `base_url` and use it in your API requests.
+In this tutorial, you'll create environment variables and use them in your API requests.
 
 ---
 
@@ -11,11 +11,13 @@ In this tutorial, you'll create an environment variable named `base_url` and use
    ```
    Cisco SD-WAN Sandbox
    ```
-3. Add a variable:
+3. Add these variables:
 
-   | Variable | Value |
-   |----------|-------|
-   | base_url | https://sandbox-sdwan-2.cisco.com |
+| Variable | Value |
+|----------|-------|
+| base_url | https://sandbox-sdwan-2.cisco.com |
+| username | devnetuser |
+| password | RG!_Yw919_83 |
 
 4. Click **Save**.
 
@@ -45,11 +47,18 @@ https://sandbox-sdwan-2.cisco.com/j_security_check
 {{base_url}}/j_security_check
 ```
 
-Keep the Body as **x-www-form-urlencoded**:
+Keep the Body as **x-www-form-urlencoded** and replace the hard-coded values:
 
+**Before**
 ```
 j_username = devnetuser
 j_password = RG!_Yw919_83
+```
+
+**After**
+```
+j_username = {{username}}
+j_password = {{password}}
 ```
 
 Click **Save**.
@@ -85,16 +94,12 @@ Both requests should work exactly as before.
 
 ## What Happened?
 
-Instead of typing the full URL in every request, you used:
+Instead of hard-coding the server URL and login credentials, you stored them as environment variables:
 
 ```
 {{base_url}}
+{{username}}
+{{password}}
 ```
 
-Postman automatically replaces it with:
-
-```
-https://sandbox-sdwan-2.cisco.com
-```
-
-This makes your requests easier to maintain. If the server URL changes, simply update the **base_url** environment variable instead of editing every request.
+Postman automatically replaces these variables with their values from the active environment. If the server URL or credentials change, simply update the environment variables instead of editing every request.
