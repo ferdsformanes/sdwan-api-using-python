@@ -1,0 +1,31 @@
+## Step 1: Create a Login Request
+
+1. Create a new request.
+2. Set the method to **POST**.
+3. Enter the URL:
+   ```
+   https://sandbox-sdwan-2.cisco.com/j_security_check
+   ```
+4. Go to **Body** → **x-www-form-urlencoded**.
+5. Add:
+   ```
+   j_username = devnetuser
+   j_password = RG!_Yw919_83
+   ```
+6. Click **Save**.
+7. Click **Send**.
+
+---
+
+## Step 2: Create a Get Devices Request
+
+1. Create a new request.
+2. Set the method to **GET**.
+3. Enter the URL:
+   ```
+   https://sandbox-sdwan-2.cisco.com/dataservice/device
+   ```
+4. Click **Save**.
+5. Click **Send**.
+
+> **Note:** Postman automatically includes the **JSESSIONID** cookie from the login request, so you don't need to add it manually.
